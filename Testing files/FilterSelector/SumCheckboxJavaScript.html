@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+
+<!--用JavaScript来实现-->
+<script type = "text/javascript">
+window.onload = function(){//这句话是必写的
+    var btn = document.getElementById("btn")
+	btn.onclick = function(){
+	    var arrays = new Array();
+		var items = document.getElementsByName("check")
+		for(var i = 0;i < items.length;i++){
+		    if(items[i].checked){//如果此checkbox被选中
+			    arrays.push(items[i].value);//将此checkbox加入数组，push是JavaScript中的方法
+			}
+		}
+		alert("选中的个数为：" + arrays.length);
+	}
+}
+</script>	
+
+</head>
+<body>
+    <input type = "checkbox" value = "1" name = "check" checked = "checked" />
+	<input type = "checkbox" value = "2" name = "check" />
+	<input type = "checkbox" value = "3" name = "check" checked = "checked" />
+	<input type = "button" value = "你选中的个数" id = "btn" />
+</body>
+</html>

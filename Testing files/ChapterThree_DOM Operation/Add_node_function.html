@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" /><!--因为少了这一句，导致中文显示乱码-->
+<title></title>
+<script src="../../jquery-1.11.3.js" type="text/javascript"></script> 
+<script type="text/javascript">
+    $(document).ready(function(){
+	    var li_1 = $("<li>香蕉</li>");//添加一个text节点
+		var li_2 = $("<li title='pear'>雪梨</li>");//添加一个属性节点。在这里title里面的要用单引号，否则出错
+		var li_3 = $("<li title='blueberry'>蓝莓</li>")
+		var li_4 = $("<li title='other'>其它</li>")
+		$("ul").append(li_1);//将li_1附加到父元素ul的最后面
+		$("ul").prepend(li_2);//将li_2置于父元素ul的最前面
+		li_3.insertAfter("ul li:eq(1)");//将li_3置于第二个元素之后
+		$("ul").append(li_4);
+	})
+</script>
+
+</head>
+<body>
+    <p title="Which fruit do you like">你最喜欢的水果是：</p>
+	<ul>
+	    <li title="apple">苹果</li>
+		<li title="orange">橘子</li>
+		<li title="pineapple">菠萝</li>
+	</ul>
+</body>
+</html>

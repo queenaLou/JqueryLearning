@@ -1,0 +1,21 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html> 
+<head> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+<title>offset和position测试</title> 
+<script src="../../jquery-1.11.3.js" type="text/javascript"></script> 
+<script type="text/javascript">
+    $(document).ready(function(){
+	    var ost = $("#inner").offset();
+		var pst = $("#inner").position();
+		var outer_ost = $("#outer").offset();
+		alert("inner的offset的left是："+ost.left+"；top是："+ost.top+"。\n"+"inner的position的left是："+pst.left+"；top是："+pst.top+"。\n"+"outer的offset的left是："+outer_ost.left+"；top是："+outer_ost.top);
+	})
+</script>
+</head> 
+<body> 
+    <div id="outer" style="width:200px;position:relative;left:100px">
+	    <div id="inner" style="position:absolute;left:50px;top:60px"></div>
+	</div>
+</body> 
+</html> 

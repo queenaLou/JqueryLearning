@@ -1,0 +1,126 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<title></title>
+<script src="../../jquery-1.11.3.js" type="text/javascript"></script> 
+<script type="text/javascript">
+    $(function(){
+	    //获取p元素的color
+	    $("input:eq(0)").click(function(){
+		    alert("当前p元素的color为："+$("p").css("color"));//显示为rgb();
+		})
+		//设置p元素的color
+		$("input:eq(1)").click(function(){
+		    $("p").css("color","red");
+		})
+		//设置p元素的样式
+		$("input:eq(2)").click(function(){
+		    $("p").css({"fontSize":"30px","backgroundColor":"#888877"});//这里必须得带px，否则fontSize不被改变
+		})
+		//设置p元素的透明度
+		$("input:eq(3)").click(function(){
+		    $("p").css("opacity","0.5");//设置p元素为半透明
+		})
+		//通过css获取p元素的高度
+		$("input:eq(4)").click(function(){
+		    alert($("p").css("height"));//通过css获取p元素的高度
+		})
+		//通过height()获取p元素的高度
+		$("input:eq(5)").click(function(){
+		    alert($("p").height());//通过height()获取p元素的高度
+		})
+		//设置p元素的高度
+		$("input:eq(6)").click(function(){
+		    $("p").css({"position":"relative","top":"50px"});//设置p元素的高度
+		})
+		//获取p元素的宽度
+		$("input:eq(7)").click(function(){
+		    alert($("p").width());//获取p元素的宽度
+		})
+		//设置p元素的宽度
+		$("input:eq(8)").click(function(){
+		    $("p").width("200px");//设置p元素的宽度
+		})
+		//获取p元素offset的左边距和上边距
+		$("input:eq(9)").click(function(){
+		    var ost = $("p").offset();//获取p元素的offset
+			left_ost = ost.left;
+			top_ost = ost.top;
+			alert("left:"+left_ost+" ;and top:"+top_ost);
+		})
+		//获取p元素position相对于父元素的偏移
+		$("input:eq(10)").click(function(){
+		    var pst = $("p").position();//获取p元素的position
+			left_pst = pst.left;
+			top_pst = pst.top;
+			alert("left:"+left_pst+" and top:"+top_pst);
+		})
+		//获取div元素的scrollTop
+		$("input:eq(11)").click(function(){
+			var s_top = $("div").scrollTop();//获取div元素的滚动条距顶端的距离
+			alert("scrollTop:"+s_top);
+		})
+		//设置div元素的scrollTop
+		$("input:eq(12)").click(function(){
+			var s_top = $("div").scrollTop(20);//设置div元素的滚动条距顶端的距离
+		})
+		
+	})
+</script>
+</head>
+<body>
+    <input type="button" value="获取p元素的color"/>
+	<input type="button" value="设置p元素的color"/>
+	<input type="button" value="设置p元素的样式"/>
+	<input type="button" value="设置p元素的透明度"/>
+	<input type="button" value="通过css获取p元素的高度"/>
+	<input type="button" value="通过height()获取p元素的高度"/>
+	<input type="button" value="设置p元素的高度"/>
+	<input type="button" value="通过width()获取p元素的宽度"/>
+	<input type="button" value="设置p元素的宽度"/>
+	<input type="button" value="获取p元素offset的左边距和上边距"/>
+	<input type="button" value="获取p元素position的左偏移和右偏移"/>
+	<input type="button" value="获取div元素的scrollTop"/>
+	<input type="button" value="设置div元素的scrollTop"/>
+    <br/><br/>
+    <p class="myClass" title="which fruit do you like?"><strong>你最喜欢的水果是？</strong></p>
+	<ul>
+	    <li title="apple">苹果</li>
+		<li title="pear">梨</li>
+		<li title="orange">橙子</li>
+	</ul>
+	<div style="border:1px solid black;width:200px;height:200px;overflow:scroll">
+	This is some text.
+	This is some text.
+	This is some text.
+	This is some text.
+	This is some text.
+	This is some text.
+	This is some text.
+	This is some text.
+	This is some text.
+	This is some text.
+	This is some text.
+	This is some text.
+	This is some text.
+	This is some text.
+	This is some text.
+	This is some text.
+	This is some text.
+	This is some text.
+	This is some text.
+	This is some text.
+	This is some text.
+	This is some text.
+	This is some text.
+	This is some text.
+	This is some text.
+	This is some text.
+	This is some text.
+	This is some text.
+	This is some text.
+	This is some text.
+	</div>
+</body>
+</html>

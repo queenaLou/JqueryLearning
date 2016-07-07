@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html> 
+<head> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+<title></title> 
+<script src="../../jquery-1.11.3.js" type="text/javascript"></script> 
+<script type="text/javascript">
+    $(document).ready(function(){
+	    
+		$("#bt").mouseenter(function(e){//一定要注意，mouseover()等方法第二个单词首字母不大写！！！！
+		    alert("鼠标从"+e.relatedTarget.nodeName+"元素移来");//对于mouseover()和mouseenter()，event.relatedTarget属性是光标刚刚掠过的元素
+		})
+
+		$("div").mouseout(function(e){
+		    alert("鼠标正向"+e.relatedTarget.nodeName+"元素移去");//对于mouseout()和mouseleave()，event.relatedTarget属性是光标移向的元素
+		})
+	})
+</script>
+</head> 
+<body> 
+	<h1>这是一个h1元素</h1>
+	<h2>这是一个h2元素</h2>
+	<p>这是一个p元素</p>
+	<p>这是另一个p元素</p>
+	<button id="bt">这是一个按钮</button>
+	<div>这是一个div元素</div>
+</body> 
+</html> 

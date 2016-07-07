@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<title></title>
+<script src="../../jquery-1.11.3.js" type="text/javascript"></script> 
+<script type="text/javascript">
+    $(function(){
+	    var titletxt = $("p").prop("title");//获取元素集中第一个元素的title属性，在这里prop是property的缩写
+		alert(titletxt);
+	    $("ul li:eq(0)").removeAttr("title");//然后删元素的title属性
+		$("ul li:eq(1)").removeProp("title");//元素的title属性变成undefined
+		$("ul li:eq(0)").attr("title","apple");
+		$("ul li:eq(1)").prop("title","pear");//可以为以上两个元素再次添加title属性
+		/*
+		$("input").removeAttr("checked");//将checkbox的checked属性从初始状态删除，并不勾选
+		//$("input").attr("checked","checked");//在这里，attribute被认为是checkbox的默认状态，所以会在html里添加上去，但不认为是当前状态，所以并不勾选
+		$("input").prop("checked","checked");//在这里，property被认为是checkbox的当前状态，所以勾选，但并不在html里添加此语句checked="checked"
+		*/
+		$("input").removeProp("checked");//不改变将checkbox的checked属性的初始状态，但不勾选
+		$("input").prop("checked","checked");//再为其添加上checked属性
+	})
+</script>
+</head>
+<body>
+    <p title="which fruit do you like?">你最喜欢的水果是？</p>
+	<p title="which fruit do you like,uh?">你最喜欢的水果是，额？</p>
+	<input type="checkbox" id="choose" checked="checked">请选择</input>
+	<ul>
+	    <li title="apple">苹果</li>
+		<li title="pear">梨</li>
+		<li title="orange">橙子</li>
+	</ul>
+</body>
+</html>

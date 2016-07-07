@@ -1,0 +1,91 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html> 
+<head> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+<title></title> 
+<style type="text/css">
+    span{
+	    background:#898989;
+	}
+	span:hover{
+	    cursor:pointer;
+	}
+	textarea{
+	    height:50px;
+	}
+	#tooltip{
+	    position:absolute;
+		display:block;
+		font-size:12px;
+		border:1px solid #333;
+		background:#f7f5d1;
+	}
+</style>
+<script src="../../jquery-1.11.3.js" type="text/javascript"></script> 
+<script type="text/javascript">
+    $(document).ready(function(){
+	    var textOb = $("textarea");
+		var x = 10;
+		var y = 20;
+		//bigger操作：click，mouseover，mouseout，mousemove
+        $("#bigger").click(function(){
+		    if(!textOb.is(":animated")){
+			    if(textOb.height() < 500)
+			    $(textOb).animate({"height":"+=50"},500);//直接改变textarea的高度
+			}
+		}).mouseover(function(e){
+		    var newdiv = $("<div id='tooltip'>点击增大高度</div>");
+			$("body").append(newdiv);
+			$("#tooltip").css({
+			    "top":(e.pageY+y)+"px",
+			    "left":(e.pageX+x)+"px"
+			});
+		}).mouseout(function(){
+		    $("#tooltip").remove();
+		}).mousemove(function(e){
+		    $("#tooltip").css({
+			    "top":(e.pageY+y)+"px",
+				"left":(e.pageX+x)+"px"
+			});
+		})
+		
+		//smaller操作
+		$("#smaller").click(function(){
+		    if(!$(textOb).is(":animated")){
+			    if(textOb.height() > 50){
+			        textOb.animate({"height":"-=50"},500);//直接改变textarea的高度
+			    }
+			}
+		}).mouseover(function(e){
+		    var newdiv = $("<div id='tooltip'>点击减小高度</div>");
+			$("body").append(newdiv);
+			$("#tooltip").css({
+			    "top":(e.pageY+y)+"px",
+			    "left":(e.pageX+x)+"px"
+			});
+		}).mouseout(function(){
+		    $("#tooltip").remove();
+		}).mousemove(function(e){
+		    $("#tooltip").css({
+			    "top":(e.pageY+y)+"px",
+				"left":(e.pageX+x)+"px"
+			});
+		})
+	})
+</script>
+</head> 
+<body> 
+	<form>
+	    <fieldset>
+		    <legend>模拟编辑区域</legend>
+		    <div>
+			    <span id="bigger">放大</span>
+				<span id="smaller">缩小</span>
+			</div>
+			<div>
+			    <textarea>模拟操作增大编辑区域缩小编辑区域 模拟操作增大编辑区域缩小编辑区域 模拟操作增大编辑区域缩小编辑区域 模拟操作增大编辑区域缩小编辑区域模拟操作增大编辑区域缩小编辑区域 模拟操作增大编辑区域缩小编辑区域 模拟操作增大编辑区域缩小编辑区域 模拟操作增大编辑区域缩小编辑区域模拟操作增大编辑区域缩小编辑区域 模拟操作增大编辑区域缩小编辑区域 模拟操作增大编辑区域缩小编辑区域 模拟操作增大编辑区域缩小编辑区域</textarea>
+			</div>			
+		</fieldset>
+	</form>
+</body> 
+</html> 

@@ -1,0 +1,24 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" /><!--因为少了这一句，导致中文显示乱码-->
+<title></title>
+<script src="../../jquery-1.11.3.js" type="text/javascript"></script> 
+<script type="text/javascript">
+    $(document).ready(function(){
+	    var li_1 = $("ul li:eq(0)");//获取li第一个节点
+		var li_2 = $("ul li:eq(1)");//获取li第二个节点
+		li_2.insertBefore(li_1);//将第二个元素置于第一个元素之前
+	})
+</script>
+
+</head>
+<body>
+    <p title="Which fruit do you like">你最喜欢的水果是：</p>
+	<ul>
+	    <li title="apple">苹果</li>
+		<li title="orange">橘子</li>
+		<li title="pineapple">菠萝</li>
+	</ul>
+</body>
+</html>

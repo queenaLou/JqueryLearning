@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html> 
+<head> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+<title>图片提示</title> 
+<script src="../../jquery-1.11.3.js" type="text/javascript"></script> 
+
+<script type="text/javascript">
+	/*
+	var startTime = new Date().getTime();
+	$(document).ready(function(){
+	    endTime1 = new Date().getTime();
+		jTime = endTime1 - startTime;
+		$("<div jQuery的ready用时：>"+jTime+"ms</div>").appendTo($('body'));
+	})
+	window.onload = function(){
+	    endTime2 = new Date().getTime();
+		jTime = endTime2 - startTime;
+		$("<div JavaScript的onload用时：>"+jTime+"ms</div>").appendTo($('body'));
+	}
+	*/
+	//此方法的onload写在了body里面
+	var startTime = new Date().getTime();
+	$(document).ready(function(){
+	    fOne();
+	})
+	function fOne(){
+	    endTime1 = new Date().getTime();
+		jTime = endTime1 - startTime;
+		$("<div jQuery的ready用时：>"+jTime+"ms</div>").appendTo($('body'));
+	}
+	function fTwo(){
+	    endTime2 = new Date().getTime();
+		jTime = endTime2 - startTime;
+		$("<div JavaScript的onload用时：>"+jTime+"ms</div>").appendTo($('body'));
+	}
+</script>
+</head> 
+<body onload="fTwo();"> 
+    <img src="demo.jpg" alt="demo" style="width:200px;height:200px"/>
+</body> 
+</html> 

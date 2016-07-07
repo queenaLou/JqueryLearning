@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<!--在head标签内引入jQuery -->
+<script src="../../jquery-1.11.3.js" type="text/javascript"></script>
+<title>jQuery对象和DOM对象</title>
+<script type="text/javascript">
+//等待DOM元素加载完毕 
+/*使用DOM对象的方式
+$(document).ready(function(){
+    var $jQcr = $("#cr");     //jQuery对象jqrcr，是id为cr的对象
+	var domcr = $jQcr.get(0);        //jQuery对象转换成DOM对象
+	$jQcr.click(function(){
+	    if(domcr.checked){            //若domcr对象被选中,DOM方式判断
+		    alert("感谢你的支持！你可以继续操作！");
+		}
+	})
+});
+*/
+
+//使用jQuery对象的方式
+$(document).ready(function(){
+    var jQcr = $("#cr");     //jQuery对象jqrcr，是id为cr的对象
+	jQcr.click(function(){
+	    if(jQcr.is(":checked")){            //若jQcr对象被选中 jQuery方式判断
+		    alert("感谢你的支持！你可以继续操作！");
+		}
+	})
+});
+
+</script>
+</head>
+<body>
+<!--
+    <input type="checkbox" id="cr"/> <label for="cr">我已经阅读了上面制度.</label>
+-->
+<!--或者使用隐式连接-->
+    <label><input type="checkbox" id="cr"/>我已经阅读了上面制度.</label>
+</body>
+</html>

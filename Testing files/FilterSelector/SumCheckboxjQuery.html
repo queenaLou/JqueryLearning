@@ -1,0 +1,23 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<!--在head标签内引入jQuery -->
+<script src="../../jquery-1.11.3.js" type="text/javascript"></script>
+<script language = "javascript">
+$(document).ready(function(){//等待dom元素加载完毕，使用jQuery就需要在head标签内将之引入
+    $("#btn").click(function(){//获取id为btn的元素，并为它添加onclick事件
+	    var items = $("input[name = 'check']:checked");//获取name为check的一组元素，然后选取它们中选中（checked）的
+		alert("选中的个数为：" + items.length)
+	})  
+})
+</script>
+
+</head>
+<body>
+    <input type = "checkbox" value = "1" name = "check" checked/><!--这里跟JavaScript有区别，不是checked = "checked"-->
+	<input type = "checkbox" value = "2" name = "check" />
+	<input type = "checkbox" value = "3" name = "check" checked/>
+	<input type = "button" value = "你选中的个数" id = "btn" />
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html> 
+<head> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+<title></title> 
+<style type="text/css">
+    div{
+		opacity:0.5;
+		position:absolute;
+		width:300px;
+		height:300px;
+		display:block;
+	}
+</style>
+<script src="../../jquery-1.11.3.js" type="text/javascript"></script> 
+<script type="text/javascript">
+    $(document).ready(function(){
+        $("div").hover(function(){
+		    
+		    $(this).slideUp(6000)
+			       .animate({width:"500px"},5000);
+		},function(){
+		    $(this).stop();//当在enter时，正slideUp时移除光标，则直接进行变宽操作
+		    $(this).animate({left:"500px"},5000)
+			       .animate({top:"500px"},5000);
+		})
+	})
+</script>
+</head> 
+<body> 
+	<div>停停停，直接使用stop()停止当前正在进行的并以当前状态直接执行下一个动画；若加参数即可以相应控制.
+	停停停，直接使用stop()停止当前正在进行的并以当前状态直接执行下一个动画；若加参数即可以相应控制.
+	停停停，直接使用stop()停止当前正在进行的并以当前状态直接执行下一个动画；若加参数即可以相应控制.
+	停停停，直接使用stop()停止当前正在进行的并以当前状态直接执行下一个动画；若加参数即可以相应控制.
+	</div>
+</body> 
+</html> 

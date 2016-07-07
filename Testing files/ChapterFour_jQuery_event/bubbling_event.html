@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html> 
+<head> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+<title></title> 
+<script src="../../jquery-1.11.3.js" type="text/javascript"></script> 
+<style type="text/css">
+    body{
+	    font-size:13px;
+		line-height:130%;
+	}
+    #panel{
+	    margin:50px;
+	    border:1px solid #0050D0;
+		width:200px;
+		background:#96E555;
+	}
+	span{
+	    background:#F050D0;
+		display:block;
+		cursor:pointer;
+		margin:10px;
+	}
+	p{
+	    background:#888;
+		color:white;
+		width:200px;
+		margin-left:50px;
+	}
+</style>
+<script type="text/javascript">
+    $(document).ready(function(){
+	    //为span绑定click事件
+		$("span").click(function(e){//加一个参数使此函数获取了事件对象
+		    var txt = $("#msg").html()+"<p>span元素被点击</p>";
+			$("#msg").html(txt);
+			e.stopPropagation();//此方法停止事件冒泡。或者使用return false;
+			//return false;
+		});
+		//为外层div绑定click事件
+		$("#panel").click(function(){
+		    var txt = $("#msg").html()+"<p>外层div元素被点击</p>";
+			$("#msg").html(txt);//没有加stopPropagation()，所以执行事件冒泡
+		});
+		//为body绑定click事件
+		$("body").click(function(){
+		    var txt = $("#msg").html()+"<p>body元素被点击</p>";
+			$("#msg").html(txt);
+		});
+	})
+</script>
+</head> 
+<body> 
+    <div id="panel">
+	    外层div元素<br/>
+	    <span>内层span元素</span><!-- 当sytle上写display：block后就直接换行了，且background也全部填充了-->
+		外层div元素<br/>
+	</div>
+	<div id="msg"></div>
+</body> 
+</html> 

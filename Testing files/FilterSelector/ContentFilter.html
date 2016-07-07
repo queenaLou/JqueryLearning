@@ -1,0 +1,94 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<!--连接css-->
+<link rel = "stylesheet" type = "text/css" href = "css/jQueryGet.css" />
+<!--在head标签内引入jQuery -->
+<script src="../../jquery-1.11.3.js" type="text/javascript"></script>
+<script type = "text/javascript">
+    
+	$(function(){
+	    function animateIt(){//设置动画效果
+	        $("#mover").slideToggle("slow",animateIt);
+		}
+		animateIt();
+		
+	    $("#reset").click(function(){//手动重置页面元素
+		    $("*").removeAttr("style");
+		})
+		
+		$("input[type=button]").click(function(){//若勾选自动重置，则点击button后先重置
+		    if($("#isreset").is(":checked")){
+			    $("#reset").click();
+			}
+		})
+		
+		$("#btn1").click(function(){//更改文本包含di的所有div的背景色
+		    $("div:contains(di)").css("background","#bbffaa");
+		})
+		
+		$("#btn2").click(function(){//更改没有子元素的所有div元素的背景色
+		    $("div:empty").css("background","#bbffaa");
+		})
+		
+		$("#btn3").click(function(){//更改含有class为mini的元素的所有div元素的背景色
+		    $("div:has(.mini)").css("background","#bbffaa");
+		})
+		
+		$("#btn4").click(function(){//更改含有子元素的所有div元素的背景色
+		    $("div:parent").css("background","#bbffaa");
+		})
+	
+	})
+	
+	$(function(){
+		
+	})
+</script>
+</head>
+<body>
+    <h1>内容过滤选择器</h1>
+	<button id="reset">手动重置页面元素</button>
+	<input type="checkbox" id="isreset" checked="checked"/><label for="isreset">点击下列按钮时先自动重置页面</label><br /><br />
+	
+	<input type="button" value="选择文本包含di的div元素" id="btn1"/>
+	<input type="button" value="选择没有子元素的所有div元素" id="btn2"/>
+	<input type="button" value="选择含有class为mini的元素的所有div元素" id="btn3"/>
+	<input type="button" value="选择含有子元素的div元素" id="btn4"/>
+	<br/><br/>
+	
+	<!-- 测试的元素 -->
+    <div class = "one" id = "one">
+	    id为one，class为one的div
+		<div class = "mini">class为mini的div</div>
+	</div>
+	<div class = "one" id = "two" title = "test">
+	    id为two，class为one，title为test的div
+		<div class = "mini" title = "other">class为mini，title为other的div</div>
+		<div class = "mini" title = "test">class为mini，title为test的div</div>
+	</div>
+	<div class = "one">
+	    <div class = "mini">class为mini的div</div>
+		<div class = "mini">class为mini的div</div>
+		<div class = "mini">class为mini的div</div>
+		<div class = "mini"></div>
+	</div>
+	<div class = "one">
+	    <div class = "mini">class为mini的div</div>
+		<div class = "mini">class为mini的div</div>
+		<div class = "mini">class为mini的div</div>
+		<div class = "mini" title = "testt">class为mini，title为testt的div</div>
+	</div>
+	<div style = "display:none" class = "none">
+	    style的display为"none"的div
+	</div>
+	<div class = "hide">class为”hide”的div</div>
+	<div>
+	    包含input的type为“hidden”的div<input type = "hidden" size = "8"/>
+	</div>
+	<span id = "mover">正在执行动画的span元素</span>
+	
+	
+</body>
+</html>

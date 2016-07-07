@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html> 
+<head> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+<title></title> 
+<style type="text/css">
+    div{
+	    width:200px;
+		height:100px;
+	}
+    .over{
+	    color:red;
+		background:#888;
+	}
+</style>
+<script src="../../jquery-1.11.3.js" type="text/javascript"></script> 
+<script type="text/javascript">
+    $(document).ready(function(){
+	    //只是mouseover才触发
+	    $("#div1").bind("mouseover",function(){
+		    $(this).toggleClass("over");
+		})
+		//mouseover和mouseout都触发
+		$("#div2").bind("mouseover mouseout",function(){
+		    $(this).toggleClass("over");
+		})
+		//同上一个函数效果一样
+		$("#div3").mouseover(function(){
+		    $(this).toggleClass("over");
+		}).mouseout(function(){
+		    $(this).toggleClass("over");
+		})
+		
+	})
+</script>
+</head> 
+<body> 
+	<div id="div1">只mouseover</div>
+	<div id="div2">bind一次绑定多个事件</div>
+	<div id="div3">多个bind绑定事件</div>
+</body> 
+</html> 

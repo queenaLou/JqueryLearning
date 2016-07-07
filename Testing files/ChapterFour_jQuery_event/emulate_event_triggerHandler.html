@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html> 
+<head> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+<title></title> 
+<script src="../../jquery-1.11.3.js" type="text/javascript"></script> 
+<script type="text/javascript">
+    $(document).ready(function(){
+	    //绑定自定义事件
+	    $("#btn").bind("focus",function(){
+		    $("body").append("<p>使用trigger不仅执行此函数，且input也获取焦点。但triggerHandler就只执行函数。</p>");
+		})
+		
+		$("#old").click(function(){
+		    $("#btn").trigger("focus");//input获取焦点
+		})
+		
+		$("#new").click(function(){
+		    $("#btn").triggerHandler("focus");//页面加载完毕就触发，input不获取焦点
+		})
+		
+	})
+</script>
+</head> 
+<body> 
+    <button id="old">trigger</button>
+	<button id="new">triggerHandler</button>
+	<input id="btn"></input>
+</body> 
+</html> 

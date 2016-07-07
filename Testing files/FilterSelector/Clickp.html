@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<!--在head标签内引入jQuery -->
+<script src="../../jquery-1.11.3.js" type="text/javascript"></script>
+<script language = "javascript">
+/*以JavaScript方式实现
+window.onload = function(){//页面所有元素加载完毕
+    var items = document.getElementsByTagName("p");//找到所有标签为p的对象
+	for(var i = 0;i < items.length;i++){//循环
+	    items[i].onclick = function(){//为每个p添加onclick事件
+		   alert("suc!");
+		}
+	}
+}
+*/
+//以jQuery方式实现
+$(function(){//dom元素加载完毕
+    $("p").click(function(){//找到页面所有p元素，并给每一个p元素添加onclick事件
+	    alert("suc!")
+	})
+})
+</script>
+
+</head>
+<body>
+    <p>测试1</p>
+	<p>测试2</p>
+</body>
+</html>

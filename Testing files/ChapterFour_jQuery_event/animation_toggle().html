@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html> 
+<head> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+<title></title> 
+<style type="text/css">
+    div{
+	    position:relative;
+	    width:100px;
+		height:100px;
+		background:#96E555;
+		border:1px solid #0050D0;
+		cursor:pointer;
+		margin:10px;
+	}
+</style>
+<script src="../../jquery-1.11.3.js" type="text/javascript"></script> 
+<script type="text/javascript">
+    $(document).ready(function(){
+
+	    $("button").click(function(){
+		    $("div:first").toggle(5000);//toggle()也可不设置参数，默认是normal	
+		})
+		$("div:last").click(animateIt=function(){
+		    $(this).toggle(2000,animateIt);
+		})
+	})
+</script>
+</head> 
+<body> 
+    <button>click</button>
+	<div>toggle()方法，是show()和hide()的交互</div>
+	<div>点此循环显示</div>
+</body> 
+</html> 

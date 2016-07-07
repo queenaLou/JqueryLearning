@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html> 
+<head> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+<title></title> 
+<style type="text/css">
+    div{
+		position:absolute;
+        display:block;
+		background:#888;
+		margin-top:5px;
+		width:80px;
+		height:30px;
+	}
+</style>
+<script src="../../jquery-1.11.3.js" type="text/javascript"></script> 
+<script type="text/javascript">
+    $(document).ready(function(){
+		//点击button
+		$("button").click(function(){
+		    $("div").animate({left:"500px"},5000);//注意第一个参数用{}来包裹，且值用""来引住
+		})
+		
+	})
+</script>
+</head> 
+<body> 
+    <button>横向飘动</button>
+    <div>just test</div>
+</body> 
+</html> 

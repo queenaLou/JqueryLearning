@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<title></title>
+<style>
+    .stress{
+	    font-weight:bold;
+		color:red;
+	}
+	.another{
+	    font-style:italic; 
+		color:green;
+	}
+</style>
+<script src="../../jquery-1.11.3.js" type="text/javascript"></script> 
+<script type="text/javascript">
+    $(function(){
+	    //获取p的class类
+	    $("input:eq(0)").click(function(){
+		    alert($("p").attr("class"));
+		})
+		
+		//设置p的class类
+		$("input:eq(1)").click(function(){
+		    $("p").attr("class","stress");
+		})
+		
+		//追加p的class类
+		$("input:eq(2)").click(function(){
+		    $("p").addClass("another");
+		})
+		
+		//删除p所有的class类
+		$("input:eq(3)").click(function(){
+		    //$("p").removeAttr("class");//这种方法是变成<p title="which fruit do you like?">你最喜欢的水果是？</p>
+			//或者
+			//$("p").removeClass();//这种方法是变成<p class="" title="which fruit do you like?">你最喜欢的水果是？</p>
+			//或者
+			//$("p").removeClass("stress").removeClass("another").removeClass("myClass");//跟上面一样变成<p class="" title="which fruit do you like?">你最喜欢的水果是？</p>
+			$("p").removeClass("stress another myClass");//用空格的方式隔开，跟上面一样变成<p class="" title="which fruit do you like?">你最喜欢的水果是？</p>
+		})
+		
+		//删除指定类stress
+		$("input:eq(4)").click(function(){
+		    $("p").removeClass("stress");
+		})
+		
+		//切换p的class类another，若有则删除，若无则添加
+		$("input:eq(5)").click(function(){
+		    $("p").toggleClass("another");
+		})
+		
+		//判断是否含有class类another
+		$("input:eq(6)").click(function(){
+		    //alert($("p").is(".another"));//弹出结果是false或true
+			alert($("p").hasClass("another"));//弹出结果也是false或true。只能有一个class，不能用空格隔开多个
+		})
+	})
+</script>
+</head>
+<body>
+    <input type="button" value="获取class类"/>
+	<input type="button" value="设置class类"/>
+	<input type="button" value="追加class类"/>
+	<input type="button" value="删除全部class类"/>
+	<input type="button" value="删除指定class类stress"/>
+	<input type="button" value="切换class类another"/>
+	<input type="button" value="判断是否含有class类another"/>
+	
+    <p class="myClass" title="which fruit do you like?">你最喜欢的水果是？</p>
+	<ul>
+	    <li title="apple">苹果</li>
+		<li title="pear">梨</li>
+		<li title="orange">橙子</li>
+	</ul>
+</body>
+</html>

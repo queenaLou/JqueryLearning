@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<title></title>
+<script src="../../jquery-1.11.3.js" type="text/javascript"></script> 
+<script type="text/javascript">
+    $(function(){
+	//children()方法用来获得匹配元素的子元素集合
+	    var headC = $("head").children();
+		var pC = $("p").children();
+		var ulC = $("ul").children();
+		var liC = $("ul li:eq(0)").children();
+		alert("head有"+headC.length+"个子元素");
+		alert("p有"+pC.length+"个子元素");
+		alert("ul有"+ulC.length+"个子元素");
+		alert("第一个li有"+liC.length+"个子元素");
+		for(i=0,len=ulC.length;i<=len;i++){
+		    j=i+1;
+		    alert("第"+j+"个li元素的内部html是："+ulC[i].innerHTML);//DOM对象的innerHTML是属性不是方法，后面没有小括号
+		}
+	})
+</script>
+</head>
+<body>
+    <p class="myClass" title="which fruit do you like?"><strong>你最不喜欢的水果是？</strong></p>
+	<ul>
+	    <li title="apple">苹果</li>
+		<li title="pear">梨</li>
+		<li title="orange">橙子</li>
+	</ul>
+</body>
+</html>

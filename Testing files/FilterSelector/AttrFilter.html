@@ -1,0 +1,104 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<!--连接css-->
+<link rel = "stylesheet" type = "text/css" href = "css/jQueryGet.css" />
+<!--在head标签内引入jQuery -->
+<script src="../../jquery-1.11.3.js" type="text/javascript"></script>
+<script src="lib/assist.js" type="text/javascript"></script>
+<script type = "text/javascript">
+
+	
+	$(document).ready(function(){		
+		
+		$("#btn1").click(function(){//更改所有含有属性title的<div>元素的背景色
+		    $("div[title]").css("background","#bbffaa");
+		})
+		
+		$("#btn2").click(function(){//更改title等于test的<div>元素的背景色
+		    $("div[title=test]").css("background","#bbffaa");
+		})
+		
+		$("#btn3").click(function(){//更改title不等于test的<div>元素的背景色
+		    $("div[title!=test]").css("background","#bbffaa");
+		})
+		
+		$("#btn4").click(function(){//更改title以te开始的div元素的背景色
+		    $("div[title^=te]").show(3000).css("background","#bbffaa");
+		})
+		
+		$("#btn5").click(function(){//更改title以est结束的div元素的背景色
+		    $("div[title$=est]").css("background","#bbffaa");
+		})
+		
+		$("#btn6").click(function(){//更改title里包含es的div元素的背景色
+		    $("div[title*=es]").show(3000).css("background","#bbffaa");
+		})
+		
+		$("#btn7").click(function(){//更改title等于te或以te为前缀的div元素的背景色
+		    $("div[title|=te]").css("background","#bbffaa");
+		})
+		
+		$("#btn8").click(function(){//更改title有空格隔开的值中等于origin的div元素的背景色
+		    $("div[title~=origin]").show(3000).css("background","#bbffaa");
+		})
+		
+		$("#btn9").click(function(){//更改id为notlast，title为yes的div元素的背景色
+		    $("div[id=notlast][title=yes]").css("background","#bbffaa");
+		})
+		
+	})
+	
+</script>
+</head>
+<body>
+    <h1>属性过滤选择器</h1>
+	<button id="reset">手动刷新页面元素</button>
+	<input type="checkbox" id="isreset" checked="checked"/><label for="isreset">点击下列按钮时先自动刷新页面</label><br/><br/>
+	
+	<input type="button" value="选择所有含有属性title的<div>元素" id="btn1"/>
+	<input type="button" value="选择title等于test的<div>元素" id="btn2"/>
+	<input type="button" value="选择title不等于test的<div>元素（没有title属性的也会被选中）" id="btn3"/>
+	<input type="button" value="选择title以te开始的div元素" id="btn4"/>
+	<input type="button" value="选择title以est结束的div元素" id="btn5"/>
+	<input type="button" value="选择title里包含es的div元素" id="btn6"/>
+	<input type="button" value="选择title以te为前缀的div元素" id="btn7"/>
+	<input type="button" value="选择title有空格隔开的值中等于origin的div元素" id="btn8"/>
+	<input type="button" value="选择id为notlast，title为yes的div元素" id="btn9"/>
+	<br/><br/>
+	
+	<!-- 测试的元素 -->
+    <div class = "one" id = "one">
+	    id为one，class为one的div
+		<div class = "mini">class为mini的div</div>
+	</div>
+	<div class = "one" id = "two" title = "test">
+	    id为two，class为one，title为test的div
+		<div class = "mini" title = "other">class为mini，title为other的div</div>
+		<div class = "mini" title = "test">class为mini，title为test的div</div>
+	</div>
+	<div class = "one">
+	    <div class = "mini" title="te-st">class为mini,title为te-st的div</div>
+		<div class = "mini">class为mini的div</div>
+		<div class = "mini">class为mini的div</div>
+		<div class = "mini"></div>
+	</div>
+	<div class = "one">
+	    <div class = "mini" title="test origin">class为mini,title为test origin的div</div>
+		<div class = "mini" id="notlast" title="yes">class为mini,id为notlast,title为yes的div</div>
+		<div class = "mini">class为mini的div</div>
+		<div class = "mini" title = "testt">class为mini，title为testt的div</div>
+	</div>
+	<div style = "display:none" class = "none">
+	    style的display为"none"的div
+	</div>
+	<div class = "hide">class为”hide”的div</div>
+	<div>
+	    包含input的type为“hidden”的div<input type = "hidden" size = "8"/>
+	</div>
+	<span id = "mover">正在执行动画的span元素</span>
+	
+	
+</body>
+</html>

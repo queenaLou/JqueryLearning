@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<title></title>
+<script src="../../jquery-1.11.3.js" type="text/javascript"></script> 
+<script type="text/javascript">
+    $(function(){
+	    //设置单选下拉框选中
+	    $("input:eq(0)").click(function(){
+		    $("#single").val("选择2号");//单选下拉框的val不加[]也可以
+			alert($("#single").val());//返回当前所选的值
+			//$("#single option:eq(1)").attr("selected","true");//这句不仅勾选，也将此值改为默认值，造成有多个默认值，所有得先移除属性
+			/*
+			$("#single option").removeAttr("selected");//移除单选下拉框的selected属性
+			$("#single option:eq(1)").attr("selected","true");
+			*/
+		})
+		//设置多选下拉框选中
+		$("input:eq(1)").click(function(){
+		    $("#multiple").val(["选择2号","选择3号"]);//选中多个值可以用数组[]，中间用逗号隔开。将其他值不勾选，只勾选这两个
+			alert($("#multiple").val());//返回当前值的集合
+			/*下面这两句不改变其他的值，但将这两个值也设为默认。所以想移除
+			$("#multiple option:eq(1)").attr("selected","true");
+			$("#multiple option:eq(2)").attr("selected","true");
+			*/
+		})
+		//设置单选框和多选框选中
+		$("input:eq(2)").click(function(){
+		    $(":checkbox").val(["check2","check3"]);
+			$(":radio").val(["radio2"]);//radio的val这块必须得有[]，否则不起作用
+			//若用attr()需先移除。$(":checkbox").removeAttr("checked");以及$(":radio").removeAttr("checked");
+		})
+	    
+	})
+</script>
+</head>
+<body>
+    <input type="button" value="设置单选下拉框选中"/>
+	<input type="button" value="设置多选下拉框选中"/>
+	<input type="button" value="设置单选框和多选框选中"/>
+	<br/><br/>
+
+    <select id="single">
+	    <option>选择1号</option>
+		<option>选择2号</option>
+		<option selected="selected">选择3号</option>
+	</select>
+	<br/><br/>
+	
+	<select id="multiple" multiple="multiple" style="height:120px;">
+	    <option selected="selected">选择1号</option>
+		<option>选择2号</option>
+		<option>选择3号</option>
+		<option>选择4号</option>
+		<option selected="selected">选择5号</option>
+	</select>
+	<br/><br/>
+	
+	<input type="checkbox" value="check1"/>多选1
+	<input type="checkbox" value="check2" checked="checked"/>多选2
+	<input type="checkbox" value="check3"/>多选3
+	<input type="checkbox" value="check4"/>多选4
+	<br/><br/>
+	
+	<input type="radio" value="radio1"/>单选1
+	<input type="radio" value="radio2"/>单选2
+	<input type="radio" value="radio3"/>单选3
+
+</body>
+</html>

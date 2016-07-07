@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html> 
+<head> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+<title></title> 
+<style type="text/css">
+    div{
+		position:absolute;
+        display:block;
+		background:#888;
+		margin-top:5px;
+		width:80px;
+		height:30px;
+	}
+</style>
+<script src="../../jquery-1.11.3.js" type="text/javascript"></script> 
+<script type="text/javascript">
+    $(document).ready(function(){
+		//点击第一个button
+		$("button:first").click(function(){
+		    $("div").animate({left:"+=500px"},5000);//使用+=号，在当前位置累加500
+		})
+		//点击第二个button
+		$("button:last").click(function(){
+		    $("div").animate({left:"-=500px"},5000);//使用-=号，在当前位置累减500
+		})
+	})
+</script>
+</head> 
+<body> 
+    <button>向右飘动500</button>
+	<button>向左飘动500</button>
+    <div>just test</div>
+</body> 
+</html> 

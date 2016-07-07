@@ -1,0 +1,91 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!-- 文档类型定义 根元素是html，公共标识符在-//W3C//。。。里进行了定义，若找不到则在后面的url里找-->
+<html>
+<head>
+<meta http-equiv = "Content-Type" content = "text/html; charset = UTF-8"><!-- html的元标签，此网页是表现内容用的 为content-type.内容格式是文本的html;网页编码是utf-8-->
+<style type="text/css">
+    div{
+	    width:200px;
+	}
+    #choices{
+	    border:1px solid #888;
+	}
+	#select{
+	    border:1px solid #E7E7E7;
+	}
+</style>
+<script src="../../jquery-1.11.3.js" type="text/javascript"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+	
+	//全选
+	    $("#selectAll").change(function(){
+		    if($(this).is(":checked")){
+			    $(this).siblings().prop("checked",false);//将其他选项不勾选
+	            $("[name=items]").prop("checked",true);//以前版本用attr()是可以的，但现在用attr()只是第一次点击时有用，而之后只是更改checked值却不正确显示，因此使用prop()
+			}
+	    })
+	//全不选
+	    $("#deselectAll").change(function(){
+		    if($(this).is(":checked")){
+			    $(this).siblings().prop("checked",false);
+		        $("[name=items]").prop("checked",false);
+			}
+		})
+	//反选
+	    $("#selectRev").change(function(){
+		    if($(this).is(":checked")){
+			    $(this).siblings().prop("checked",false);
+		        $("[name=items]").each(function(){//需要遍历每一个复选框
+			        //$(this).prop("checked",!$(this).prop("checked"));
+					this.checked = !this.checked;//使用上句太麻烦，直接使用JS原生的DOM方法更方便
+			    })			    
+			}
+		})
+	//提交
+	    $("#send").click(function(){
+		    var str = "你选择的是：";
+			$("[name=items]").each(function(){//遍历
+			    if($(this).is(":checked")){//若勾选了
+			        str += $(this).val()+";";//添入字符串
+				}
+			});
+			alert(str);
+		})
+	//choices与selectAll的联动，设置一个flag，遍历,赋值
+	    $("[name=items]").click(function(){//当点击choices时
+		    var Aflag = true;//与selectAll联动标记
+			var Dflag = true;//与DeselectAll联动标记
+			$("[name=items]").each(function(){//遍历
+			    if(!this.checked){
+				    Aflag = false;//有没勾选的，all就不勾选
+				}else{
+				    Dflag = false;//有勾选的，deselectall就不勾选
+				}
+			});
+			$("#selectAll").prop("checked",Aflag);
+			$("#deselectAll").prop("checked",Dflag);
+			$("#selectRev").prop("checked",false);//只要对choices操作，就把selectRev不勾选
+		})
+	})
+</script>
+</head>
+<body>
+    你最喜欢的运动是？<br/><br/>
+	<form>
+	    <div id="choices">
+		    <input type="checkbox" name="items" value="足球"/>足球
+			<input type="checkbox" name="items" value="篮球"/>篮球
+			<input type="checkbox" name="items" value="乒乓球"/>乒乓球
+			<input type="checkbox" name="items" value="排球"/>排球
+			<input type="checkbox" name="items" value="橄榄球"/>橄榄球
+		</div>
+		<br/>
+		<div id="select">
+		    <input type="checkbox" id = "selectAll" value="全选"/>全选
+			<input type="checkbox" id = "deselectAll" value="全不选"/>全不选
+			<input type="checkbox" id = "selectRev" value="反选"/>反选
+		    <input type="button" id = "send" value="提交"/>
+		</div>
+	</form>
+</body>
+</html>

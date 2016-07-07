@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<title></title>
+<script src="../../jquery-1.11.3.js" type="text/javascript"></script> 
+<script type="text/javascript">
+    $(function(){
+	    /*
+		//用replaceWith()方法
+	    //$("p").replaceWith("<strong>你最不喜欢的水果是？</strong>");
+		//用replaceAll()方法
+		$("<strong>你最不喜欢的水果是？</strong>").replaceAll("p");//跟上面的replaceWith()方法相比，前后的参数调换了下。注意这个方法前面$是不可少的，否则不起作用
+		*/
+		$("ul li").click(function(){
+		    alert($(this).html());
+		})
+		$("ul li[title='pear']").replaceWith("<li title='pineapple'>菠萝</li>");//替换过后，新元素不会继承原来的绑定事件，无任何行为。在这里，点击菠萝就没有反应
+	})
+</script>
+</head>
+<body>
+    <p title="which fruit do you like?">你最喜欢的水果是？</p>
+	<ul>
+	    <li title="apple">苹果</li>
+		<li title="pear">梨</li>
+		<li title="orange">橙子</li>
+	</ul>
+
+</body>
+</html>

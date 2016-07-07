@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html> 
+<head> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+<title></title> 
+<style type="text/css">
+    div{
+	    position:absolute;
+	    width:100px;
+		height:100px;
+		background:#96E555;
+		border:1px solid #0050D0;
+		cursor:pointer;
+	}
+</style>
+<script src="../../jquery-1.11.3.js" type="text/javascript"></script> 
+<script type="text/javascript">
+    $(document).ready(function(){
+	    $("div").click(function(){
+		    $(this).animate({left:"500px"},1000)
+			       .delay()//若不设置参数，则默认为“normal”，即400毫秒
+			       .animate({top:"500px"},1000)
+				   .delay(2000)
+				   .fadeOut(1000);
+		})
+	})
+</script>
+</head> 
+<body> 
+	<div>看动画的延迟是如何做到的</div>
+</body> 
+</html> 

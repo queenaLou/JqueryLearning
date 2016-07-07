@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<title></title>
+<script src="../../jquery-1.11.3.js" type="text/javascript"></script> 
+<script type="text/javascript">
+    $(function(){
+	    //当地址框获取鼠标焦点时，如果为初始值，则清空
+		$("#address").focus(function(){//focus()相当于JS中的onfocus()方法，目的是处理获得焦点时的事件
+		    var add_txt = $(this).val();
+			//if(add_txt == "请输入邮箱地址"){//或者
+			if(add_txt == this.defaultValue){//defaultValue是表单元素的属性。这里this指向当前的文本框，不能用$(this)代替，否则不起作用
+			    $(this).val("");
+			}
+		})
+		//当地址框失去鼠标焦点时，如果为空，则恢复初始值
+		$("#address").blur(function(){//blur()相当于JS中的onblur()方法，目的是处理失去焦点时的事件
+		    var add_txt = $(this).val();
+			if(add_txt == ""){
+			    $(this).val("请输入邮箱地址");
+			}
+		})
+		//当密码框获取鼠标焦点时，如果为初始值，则清空
+		$("#password").focus(function(){
+		    var add_txt = $(this).val();
+			//if(add_txt == "请输入邮箱密码"){//或者
+			if(add_txt == this.defaultValue){
+			    $(this).val("");
+			}
+		})
+		//当密码框失去鼠标焦点时，如果为空，则恢复初始值
+		$("#password").blur(function(){
+		    var add_txt = $(this).val();
+			if(add_txt == ""){
+			    $(this).val("请输入邮箱密码");
+			}
+		})
+	})
+</script>
+</head>
+<body>
+    <input type="text" id="address" value="请输入邮箱地址"/>
+	<br/><br/>
+	<input type="text" id="password" value="请输入邮箱密码"/>
+	<br/><br/>
+	<input type="button" value="登录"/>
+</body>
+</html>

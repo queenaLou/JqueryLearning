@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html> 
+<head> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+<title></title> 
+<style type="text/css">
+    div{
+		position:absolute;
+        display:block;
+		background:#888;
+		margin-top:5px;
+		width:80px;
+		height:30px;
+	}
+</style>
+<script src="../../jquery-1.11.3.js" type="text/javascript"></script> 
+<script type="text/javascript">
+    $(document).ready(function(){
+		//点击第一个button
+		$("button:first").click(function(){
+		    $("div").animate({left:"+=500px",height:"+=100px"},5000);//同时执行，用{}将第一个参数的多个属性包裹起来
+		})
+		//点击第二个button
+		$("button:last").click(function(){
+		    $("div").animate({left:"-=500px"},5000)//使用-=号，在当前位置累减500
+			        .animate({height:"-=100px"},5000);//按顺序执行，单个动画的链式写法即可
+		})
+	})
+</script>
+</head> 
+<body> 
+    <button>同时执行多个动画</button>
+	<button>按顺序执行动画</button>
+    <div>just test</div>
+</body> 
+</html> 

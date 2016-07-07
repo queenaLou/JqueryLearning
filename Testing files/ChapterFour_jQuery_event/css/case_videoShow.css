@@ -1,0 +1,89 @@
+*{
+    margin:0px;
+	padding:0px;
+}
+ul li{
+    list-style:none;
+}
+a{
+    color:#2B93D2;
+	text-decoration:none;
+}
+a:hover{
+    color:#E31E1C;
+	text-decoration:underline;
+}
+h2,h4{
+    font-size:1em;
+}
+/*v_show的style*/
+.highlight_tip,.change_btn,.v_content_list ul li{/*使caption和content分别一行显示*/
+    float:left;
+}
+
+.v_show{
+    width:595px;
+	margin:20px 60px;
+	overflow:hidden;/*这个设置使多余的图片隐藏，以保证只显示出来4个*/
+}
+/*v_caption的style*/
+.v_caption{
+    height:35px;
+	background:url(../img/btn_cartoon.gif) no-repeat;
+
+}
+.v_caption h2{
+	height:35px;
+	/*text-indent:-60px;这个一加上就把caption所有的都挤没了，只显示两个白点*/
+	overflow:hidden;
+	float:left;
+	display:inline;
+	background:url(../img/btn_cartoon.gif) no-repeat;
+	background-position:-15px -100px;
+
+}
+.highlight_tip span{
+    background:url(../img/btn_cartoon.gif) no-repeat 0 -320px;/*加了-320px之后，此img变成了一个圆点*/
+	margin:7px 2px;
+	width:7px;
+	height:7px;
+	float:left;
+	overflow:hidden;/*当溢出时隐藏*/
+}
+.change_btn span{
+    background:url(../img/btn_cartoon.gif) no-repeat;
+	width:30px;
+	height:23px;
+	text-indent:-10px;
+	cursor:pointer;
+	overflow:hidden;
+	display:block;
+	float:left;
+}
+.change_btn.prev{
+    background-position:0 -300px;
+}
+/*v_content的style*/
+.v_content{
+    position:relative;
+    width:592px;
+	height:160px;
+	border-left:1px solid #E7E7E7;
+	border-bottom:1px solid #E7E7E7;
+	border-right:1px solid #E7E7E7;
+}
+.v_content_list{
+    position:absolute;
+	width:2500px;
+	
+}
+.v_content_list ul li{
+    margin:20px 10px;
+}
+.v_content_list ul li img{
+    width:128px;
+}
+.v_content_list ul li h4 a,.v_content_list ul li span{
+    font-family:Helvetica;
+	font-size:11px;
+}

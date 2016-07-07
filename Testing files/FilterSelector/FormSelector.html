@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" /><!--因为少了这一句，导致中文显示乱码-->
+<!--在head标签内引入jQuery -->
+<script src="../../jquery-1.11.3.js" type="text/javascript"></script>    
+<script type="text/javascript">
+$(document).ready(function(){
+    $("div").append("有"+$("#form1 :text").length+"个:text元素<br/>")
+	        .append("有"+$("#form1 :password").length+"个:password元素<br/>")
+			.append("有"+$("#form1 :radio").length+"个:radio元素<br/>")
+			.append("有"+$("#form1 :checkbox").length+"个:checkbox元素<br/>")
+			.append("有"+$("#form1 :submit").length+"个:submit元素<br/>")
+			.append("有"+$("#form1 :image").length+"个:image元素<br/>")
+			.append("有"+$("#form1 :reset").length+"个:reset元素<br/>")
+			.append("有"+$("#form1 :button").length+"个:button元素<br/>")//<input type=button/>和<button></button>都能匹配
+			.append("有"+$("#form1 :file").length+"个:file元素<br/>")
+			.append("有"+$("#form1 :hidden").length+"个:hidden元素<br/>")//<input type="hidden"/>和<div style="display:none">test</div>都可以匹配
+			.append("有"+$("#form1 select").length+"个select元素<br/>")
+			.append("有"+$("#form1 textarea").length+"个textarea元素<br/><br/>")
+			.append("表单有"+$("#form1 input").length+"个(input)元素<br/>")
+			.append("共有"+$("#form1 :input").length+"个(:input)元素<br/>")
+			.css("color","red");
+	
+	$("form").submit(function(){return false;});//return false,不能提交
+})
+
+</script>
+</head>
+<body>
+    <form id="form1" action="#">
+	    <input type="button" value="Button"/><br/>
+		<input type="checkbox" name="c"/>1
+		<input type="checkbox" name="c"/>2
+		<input type="checkbox" name="c"/>3<br/>
+		<input type="file"/><br/>
+		<input type="hidden"/><div style="display:none">test</div><br/>
+		<input type="image"/><br/><!--type=image有type=submit的功能-->
+		<input type="password"/><br/>
+		<input type="radio" name="a"/>1<input type="radio" name="a"/>2<br/>
+		<input type="reset"/><br/>
+		<input type="submit" value="提交"/><br/>
+		<input type="text"/><br/>
+		<select><option>Option</option></select><br/>
+		<textarea rows="5" cols="20"></textarea><br/>
+		<button>Button</button><br/>
+	</form>
+	
+	<div></div>
+</body>
+</html>

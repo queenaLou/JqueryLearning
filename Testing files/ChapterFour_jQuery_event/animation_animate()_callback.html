@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html> 
+<head> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+<title></title> 
+<style type="text/css">
+    div{
+		position:absolute;
+        display:block;
+		background:#888;
+		margin-top:5px;
+		width:80px;
+		height:30px;
+	}
+</style>
+<script src="../../jquery-1.11.3.js" type="text/javascript"></script> 
+<script type="text/javascript">
+    $(document).ready(function(){
+	    $("div:first").css("opacity","0.5");//设置div的不透明度为半透明
+		$("div:not(:first)").css("display","none");//设置除第一个div外不显示
+		//点击第一个button
+		$("button:first").click(function(){
+		    $("div:first").animate({left:"500px",height:"100px",opacity:"1"},5000)//向右走，变高，变完全不透明
+			        .animate({top:"200px",width:"200px"},5000,function(){//往下走，变宽。然后将css操作加入动画队列，执行回调函数
+					   $(this).css("border","5px solid blue"); 
+					})
+					//.css("border","5px solid blue");//直接这样排序不可行，因为css()方法不会加入到动画队列中，而是立即执行
+					//故在上一步中加入回掉函数即将回调函数加入到了动画队列中
+		})
+		//点击第二个button
+		$("#midb").click(function(){
+		    $("#mid").show(5000,function(){//show回调函数
+			    $(this).css("border","1px solid red");
+			})
+		})
+		//点击第三个button
+		$("button[id='thrb']").click(function(){
+		    $("div[id='thr']").show(5000)
+			             .queue(function(){
+						     $(this).css("background","red");
+							 $(this).dequeue();//要确保.dequeue()被调用，否则，下一个排队的不被执行
+						 }).slideUp();
+		})
+		//点击第四个button
+		$("button:last").click(function(){
+		    $("div:last").show(5000)
+			             .queue(function(next){//传入一个next参数
+						     $(this).css("background","red");
+							 next();//继续下一个动画
+						 }).slideUp();
+		})
+	})
+</script>
+</head> 
+<body> 
+    <button>animate回调</button>
+	<button id="midb">show的回调</button>
+	<button id="thrb">queue()排队</button>
+	<button>next使用</button>
+    <div id="fir">just test</div><br/><br/><br/>
+	<div id="mid">show回调</div><br/><br/><br/>
+	<div id="thr">排队排队，用方法queue和dequeue</div><br/><br/><br/>
+	<div>用next</div>
+</body> 
+</html> 

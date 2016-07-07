@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+<title>selectTest</title>
+<style type="text/css">
+    *{
+	    font-size:12px;
+	}
+    div{
+	    float:left;
+	}
+</style>
+<script type="text/javascript" src="../../jquery-1.11.3.js"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+	    
+		//以下方法可用。但若将整个内容放在一个form里，点击按钮就出现了闪一下又回来的情况
+		
+	    //addAllR的click方法
+		$("#addAllR").click(function(){
+		    var ss = $("#selectLeft option");
+			ss.appendTo($("#selectRight"));
+		})
+		//addR的click方法
+	    $("#addR").click(function(){
+			$('#selectLeft option:selected').appendTo($('#selectRight'));//直接用appendTo就从当前位置删除并移动到另一个位置了
+		})
+		//addL的click方法
+		$("#addL").click(function(){
+		    $("#selectRight option:selected").appendTo($("#selectLeft"));
+		})
+		//addAllL的click方法
+		$("#addAllL").click(function(){
+		    $("#selectRight option").appendTo($("#selectLeft"));
+		})
+		//双击左边的option
+		$("#selectLeft").dblclick(function(){
+		    var ss = $("#selectLeft option:selected",this);//不知为何不好使
+			ss.appendTo($("#selectRight"));
+		})
+		//双击右边的option
+		$("#selectRight option").dblclick(function(){
+		    $(this).appendTo($("#selectLeft"));//愁人
+		})
+	})
+</script>
+</head>
+<body>
+	<p>登陆账号：<input type="text"></input></p>
+	<p>登陆密码：<input type="text"></input></p>
+	<p>主持人名：<input type="text"></input></p>
+	<div>
+		<div>负责频道：</div>
+		<div>
+			<select id="selectLeft" multiple="multiple" style="width:100px;height:160px"><!-- 这里要用上style而不能直接写height="160px"-->
+				<option>美丽人生</option>
+				<option>心花怒放</option>
+				<option>招财进宝</option>
+			</select>
+		</div>
+		<div>
+			<button id="addAllR">>|</button><br/>
+			<button id="addR">&gt;&gt;</button><br/>
+			<button id="addL">&lt;&lt;</button><br/><!-- 这里的<可以用&lt;来代替，>可以用&gt;来代替-->
+			<button id="addAllL">|<</button>
+		</div>
+		<div>
+			<select id="selectRight" multiple="multiple" style="width:100px;height:160px">
+				
+			</select>
+		</div>
+	</div>
+</body>
+</html>

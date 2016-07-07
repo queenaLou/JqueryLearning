@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html> 
+<head> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+<title></title> 
+<script src="../../jquery-1.11.3.js" type="text/javascript"></script> 
+<style type="text/css">
+</style>
+<script type="text/javascript">
+    $(document).ready(function(){
+	    
+		$("#sub").click(function(e){
+		    var txt = $("#username").val();
+		    if(txt == ""){//若文本框为空，则给出错误提示并阻止表单提交
+		        $("#msg").html("<p>用户名不能为空</p>");
+				e.preventDefault();//阻止默认行为。或者使用return false;
+				//return false;
+			}
+		})
+	})
+</script>
+</head> 
+<body> 
+    <form action="test.html">
+	    <p>用户名：</p><input type="text" id="username"/><br/>
+		<input type="submit" value="提交" id="sub"/>
+	</form>
+	<div id="msg"></div>
+</body> 
+</html> 
